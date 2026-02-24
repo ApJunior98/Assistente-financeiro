@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Saldo Ativo | Inteligência Financeira Oficial</title>
+    <title>Saldo Ativo | Inteligência Financeira no WhatsApp</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
@@ -16,240 +16,234 @@
             --accent-cyan: #00E5FF; 
             --dark-blue: #05163D;
             --success-green: #25D366;
-            --light-bg: #F8FAFC;
+            --light-bg: #F4F8FB;
         }
 
         body { font-family: 'Inter', sans-serif; background-color: #fff; color: #333; overflow-x: hidden; -webkit-user-select: none; user-select: none; }
 
-        /* BARRA DE AVISO TOPO */
-        .promo-bar { background: var(--dark-blue); color: #fff; text-align: center; padding: 10px; font-size: 0.8rem; font-weight: 600; }
-        .promo-bar span { color: var(--accent-cyan); }
+        /* 1. BARRA DE URGÊNCIA */
+        .top-bar {
+            background: var(--accent-cyan);
+            color: var(--dark-blue);
+            text-align: center;
+            padding: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-        /* HERO SECTION AMPLIADA */
+        /* Hero com Gradiente Premium */
         .hero-section {
-            background: radial-gradient(circle at top right, var(--secondary-blue), var(--dark-blue));
-            color: white; padding: 100px 20px 120px; text-align: center; position: relative;
+            background: linear-gradient(150deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+            color: white;
+            padding: 80px 20px 100px;
+            text-align: center;
+            border-bottom: 8px solid var(--accent-cyan);
         }
-        .hero-section h1 { font-size: clamp(2.5rem, 8vw, 4rem); font-weight: 800; letter-spacing: -1px; margin-bottom: 25px; }
-        .hero-subtitle { font-size: 1.25rem; opacity: 0.9; max-width: 800px; margin: 0 auto 40px; }
 
-        /* BOTÃO WHATSAPP */
-        .btn-main {
-            background: var(--success-green); color: white; padding: 22px 45px; border-radius: 60px;
-            font-weight: 800; text-decoration: none; display: inline-block; font-size: 1.2rem;
-            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4); transition: 0.3s; border: none;
+        .hero-section h1 { font-size: clamp(2.2rem, 7vw, 3.8rem); font-weight: 800; line-height: 1.1; margin-bottom: 25px; }
+
+        /* 2. PLACEHOLDER PARA VÍDEO / GIF */
+        .video-container {
+            max-width: 320px;
+            margin: -60px auto 40px;
+            background: #000;
+            border: 8px solid #fff;
+            border-radius: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 9 / 16;
         }
-        .btn-main:hover { transform: translateY(-5px); color: white; box-shadow: 0 20px 40px rgba(37, 211, 102, 0.5); }
-
-        /* MOCKUP DO WHATSAPP */
-        .phone-mockup {
-            max-width: 340px; margin: -80px auto 60px; background: #fff; border: 12px solid #000;
-            border-radius: 45px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.3); position: relative;
+        .video-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #555;
+            background: #e9ecef;
+            flex-direction: column;
+            padding: 20px;
+            text-align: center;
         }
-        .chat-header { background: #075E54; color: white; padding: 15px; font-weight: 600; font-size: 0.9rem; }
-        .chat-body { background: #E5DDD5; height: 400px; padding: 15px; display: flex; flex-direction: column; gap: 10px; }
-        .msg { padding: 10px 15px; border-radius: 10px; font-size: 0.85rem; max-width: 80%; }
-        .msg.user { background: #DCF8C6; align-self: flex-end; }
-        .msg.bot { background: #FFF; align-self: flex-start; border-left: 4px solid var(--accent-cyan); }
 
-        /* SEÇÕES DE CONTEÚDO */
-        .section-title { font-weight: 800; color: var(--primary-blue); margin-bottom: 50px; text-align: center; }
-        .step-number { width: 50px; height: 50px; background: var(--primary-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; margin: 0 auto 20px; }
+        .btn-whatsapp {
+            background-color: var(--success-green);
+            color: white;
+            font-weight: 700;
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            animation: pulse 2s infinite;
+            font-size: 1.1rem;
+        }
 
-        /* DEPOIMENTOS */
-        .testimonial-grid { display: flex; overflow-x: auto; gap: 20px; padding: 20px; scroll-snap-type: x mandatory; }
-        .testimonial-item { min-width: 300px; background: var(--light-bg); padding: 30px; border-radius: 20px; scroll-snap-align: start; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
 
-        /* TABELA DE PREÇOS */
-        .price-box { border: 2px solid #eee; border-radius: 30px; padding: 50px 30px; transition: 0.4s; height: 100%; position: relative; }
-        .price-box.featured { border-color: var(--accent-cyan); background: var(--dark-blue); color: white; transform: scale(1.05); }
-        .price-box.featured .text-muted { color: #aaa !important; }
+        .feature-card { border: none; background: var(--light-bg); border-radius: 20px; padding: 30px; transition: 0.3s; }
+        .pricing-card { background: white; border-radius: 25px; padding: 40px; border: 2px solid #eee; position: relative; }
+        .pricing-card.popular { border-color: var(--accent-cyan); box-shadow: 0 15px 40px rgba(0,0,0,0.1); transform: scale(1.05); }
 
-        /* SELO DE GARANTIA */
-        .guarantee-box { background: #fff9e6; border: 1px dashed #d4a017; border-radius: 20px; padding: 30px; margin-top: 50px; }
+        /* 3. FAQ STYLING */
+        .accordion-button:not(.collapsed) { background-color: var(--light-bg); color: var(--primary-blue); }
+        .accordion-button:focus { border-color: var(--accent-cyan); box-shadow: none; }
 
-        footer { background: var(--dark-blue); color: white; padding: 80px 20px 30px; }
+        footer { background: var(--dark-blue); color: #fff; padding: 60px 20px; }
     </style>
 </head>
 <body oncontextmenu="return false;">
 
-    <div class="promo-bar">
-        PROMOÇÃO DE LANÇAMENTO: <span>PLANOS COM 30% DE DESCONTO</span> SÓ ATÉ HOJE!
+    <div class="top-bar">
+        ⚡ Oferta de lançamento: 30% de desconto acaba hoje!
     </div>
 
-    <nav class="navbar navbar-expand-lg sticky-top bg-white shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="#"><i class="fas fa-wallet me-2"></i>SALDO ATIVO</a>
-            <a href="#planos" class="btn btn-primary rounded-pill px-4 fw-bold">ASSINAR AGORA</a>
+            <a class="navbar-brand fw-bold" href="#" style="color: var(--primary-blue);">
+                <i class="fas fa-wallet me-2"></i>SALDO ATIVO
+            </a>
+            <a href="#planos" class="btn btn-primary rounded-pill px-4 fw-bold shadow-sm">ASSINAR</a>
         </div>
     </nav>
 
     <section class="hero-section">
         <div class="container">
-            <h1>Domine suas finanças <br>sem esforço.</h1>
-            <p class="hero-subtitle">O Saldo Ativo transforma seu WhatsApp em um contador pessoal de alta performance. Registre gastos por áudio e veja seu saldo em segundos.</p>
-            <a href="#planos" class="btn-main mt-2">QUERO O SALDO ATIVO <i class="fas fa-arrow-right ms-2"></i></a>
-            <div class="d-flex justify-content-center gap-4 mt-5 opacity-75">
-                <small><i class="fas fa-check-circle me-1"></i> Sem Aplicativos</small>
-                <small><i class="fas fa-check-circle me-1"></i> Sem Planilhas</small>
-                <small><i class="fas fa-check-circle me-1"></i> 100% Privado</small>
-            </div>
+            <h1>Sua vida financeira no WhatsApp.</h1>
+            <p class="lead mb-5">O assistente pessoal que entende áudios e organiza tudo para você em tempo real.</p>
+            <a href="#planos" class="btn-whatsapp">
+                <i class="fab fa-whatsapp me-2"></i> ATIVAR NO MEU WHATSAPP
+            </a>
         </div>
     </section>
 
-    <div class="phone-mockup">
-        <div class="chat-header">
-            <i class="fas fa-circle text-success me-2"></i> Saldo Ativo AI (Online)
-        </div>
-        <div class="chat-body">
-            <div class="msg user">🎤 <i>Áudio de 0:05s</i><br>"Gastei 150 no posto de gasolina"</div>
-            <div class="msg bot">✅ <b>Gasto Anotado!</b><br><b>Valor:</b> R$ 150,00<br><b>Categoria:</b> Transporte<br><br>Seu saldo para o mês ainda é de <b>R$ 1.450,00</b>.</div>
-            <div class="msg user">Quanto gastei com lazer esse mês?</div>
-            <div class="msg bot">Você gastou <b>R$ 320,00</b> com Lazer até agora. Quer ver o detalhamento?</div>
+    <div class="video-container">
+        <div class="video-placeholder">
+            <i class="fas fa-play-circle fa-3x mb-3 text-secondary"></i>
+            <p class="small fw-bold">VÍDEO DE DEMONSTRAÇÃO</p>
+            <p style="font-size: 0.7rem;">(Grave a tela do seu Zap e coloque aqui para converter 2x mais!)</p>
         </div>
     </div>
 
-    <section class="container py-5">
-        <h2 class="section-title">Como funciona o Saldo Ativo?</h2>
-        <div class="row g-5 text-center">
+    <section id="funciona" class="container py-5 mt-4">
+        <div class="row g-4 text-center">
             <div class="col-md-4">
-                <div class="step-number">1</div>
-                <h5 class="fw-bold">Escolha seu Plano</h5>
-                <p class="text-muted">Assine em menos de 1 minuto e receba o link de acesso exclusivo ao nosso robô oficial.</p>
-            </div>
-            <div class="col-md-4">
-                <div class="step-number">2</div>
-                <h5 class="fw-bold">Mande uma Mensagem</h5>
-                <p class="text-muted">Fale ou digite seus ganhos e gastos no dia a dia. A IA organiza tudo instantaneamente.</p>
-            </div>
-            <div class="col-md-4">
-                <div class="step-number">3</div>
-                <h5 class="fw-bold">Controle Total</h5>
-                <p class="text-muted">Peça relatórios, veja gráficos e saiba exatamente para onde seu dinheiro está indo.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-light py-5">
-        <div class="container py-5">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <img src="https://img.icons8.com/clouds/500/000000/shield.png" class="img-fluid" alt="Segurança">
+                <div class="feature-card">
+                    <i class="fas fa-microphone-alt fa-3x text-primary mb-3"></i>
+                    <h5 class="fw-bold">Áudio ou Texto</h5>
+                    <p class="small text-muted mb-0">Não precisa abrir app. Mande uma mensagem como se estivesse falando com um amigo.</p>
                 </div>
-                <div class="col-lg-6">
-                    <h2 class="fw-bold mb-4">Seus dados são sagrados.</h2>
-                    <p class="lead">Privacidade não é opcional para nós. O Saldo Ativo utiliza os mesmos protocolos de segurança de grandes bancos.</p>
-                    <ul class="list-unstyled">
-                        <li class="mb-3"><i class="fas fa-lock text-primary me-2"></i> <b>Criptografia Ponta a Ponta:</b> Ninguém lê suas mensagens.</li>
-                        <li class="mb-3"><i class="fas fa-user-secret text-primary me-2"></i> <b>Anonimização:</b> Seus dados financeiros são processados sem identificação pessoal.</li>
-                        <li class="mb-3"><i class="fas fa-server text-primary me-2"></i> <b>Servidores Seguros:</b> Armazenamento em nuvem de alta proteção.</li>
-                    </ul>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <i class="fas fa-brain fa-3x text-primary mb-3"></i>
+                    <h5 class="fw-bold">Inteligência Real</h5>
+                    <p class="small text-muted mb-0">Nossa IA categoriza gastos automaticamente (Uber, Ifood, Mercado, etc).</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <i class="fas fa-lock fa-3x text-primary mb-3"></i>
+                    <h5 class="fw-bold">100% Seguro</h5>
+                    <p class="small text-muted mb-0">Dados criptografados. Você tem controle total sobre suas informações.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="container py-5">
-        <h2 class="section-title">O que dizem nossos +2.000 alunos</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial-item">
-                <div class="d-flex gap-2 text-warning mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p>"Eu nunca consegui usar o Excel. Com o Saldo Ativo, organizo minha empresa e minha vida pessoal em um só lugar."</p>
-                <footer class="blockquote-footer mt-2 bg-transparent text-dark">André Oliveira, <cite>Arquiteto</cite></footer>
-            </div>
-            <div class="testimonial-item">
-                <div class="d-flex gap-2 text-warning mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p>"O áudio funciona perfeitamente. Mando a mensagem dirigindo e o bot já responde com o saldo atualizado."</p>
-                <footer class="blockquote-footer mt-2 bg-transparent text-dark">Carla Viana, <cite>Vendedora</cite></footer>
-            </div>
-            <div class="testimonial-item">
-                <div class="d-flex gap-2 text-warning mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p>"O melhor investimento de 29 reais que já fiz. Recuperei esse valor na primeira semana cortando gastos que nem via."</p>
-                <footer class="blockquote-footer mt-2 bg-transparent text-dark">Felipe Lima, <cite>Autônomo</cite></footer>
-            </div>
-        </div>
-    </section>
-
-    <section id="planos" class="py-5 bg-white">
+    <section id="planos" class="bg-light py-5">
         <div class="container py-5">
-            <h2 class="section-title">Escolha o seu plano</h2>
+            <h2 class="text-center fw-bold mb-5">Planos que cabem no seu bolso</h2>
             <div class="row g-4 justify-content-center">
                 <div class="col-md-5 col-lg-4">
-                    <div class="price-box">
-                        <h4 class="fw-bold">Starter Texto</h4>
-                        <p class="text-muted">Ideal para iniciantes</p>
-                        <hr>
-                        <div class="h2 fw-bold">R$ 19,90 <small class="fs-6 text-muted">/mês</small></div>
-                        <ul class="list-unstyled my-4">
-                            <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Registros via Texto</li>
-                            <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Categorização por IA</li>
-                            <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Saldo em Tempo Real</li>
-                            <li class="mb-3 text-muted opacity-50"><i class="fas fa-times me-2"></i> Transcrição de Áudio</li>
-                            <li class="mb-3 text-muted opacity-50"><i class="fas fa-times me-2"></i> Insights Financeiros</li>
+                    <div class="pricing-card">
+                        <h4 class="fw-bold">Plano Starter</h4>
+                        <p class="text-muted small">Interação via Texto</p>
+                        <div class="h1 fw-bold mb-4">R$ 19,90<span class="fs-6 text-muted">/mês</span></div>
+                        <ul class="list-unstyled mb-4 small">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Registros ilimitados</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Categorização automática</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Relatórios mensais</li>
+                            <li class="text-muted"><i class="fas fa-times me-2"></i>Transcrição de Áudio</li>
                         </ul>
-                        <button onclick="comprar('Starter')" class="btn btn-outline-primary w-100 py-3 rounded-pill fw-bold">ESCOLHER STARTER</button>
+                        <button onclick="comprar('Starter')" class="btn btn-outline-primary w-100 py-3 rounded-pill fw-bold">ASSINAR AGORA</button>
                     </div>
                 </div>
                 <div class="col-md-5 col-lg-4">
-                    <div class="price-box featured">
-                        <div class="badge bg-danger position-absolute top-0 start-50 translate-middle px-4 py-2 rounded-pill">OFERTA PROMO</div>
-                        <h4 class="fw-bold">Pro AI (Áudio)</h4>
-                        <p class="text-white-50">Controle total sem digitar</p>
-                        <hr class="border-light">
-                        <div class="h2 fw-bold text-white">R$ 29,90 <small class="fs-6 text-white-50">/mês</small></div>
-                        <ul class="list-unstyled my-4">
-                            <li class="mb-3"><i class="fas fa-check text-info me-2"></i> <b>Tudo do Plano Starter</b></li>
-                            <li class="mb-3"><i class="fas fa-check text-info me-2"></i> <b>Transcrição de Áudios</b></li>
-                            <li class="mb-3"><i class="fas fa-check text-info me-2"></i> Insights de Economia</li>
-                            <li class="mb-3"><i class="fas fa-check text-info me-2"></i> Relatórios em PDF</li>
-                            <li class="mb-3"><i class="fas fa-check text-info me-2"></i> Suporte Prioritário</li>
+                    <div class="pricing-card popular">
+                        <div class="badge bg-primary position-absolute top-0 start-50 translate-middle px-4 py-2 rounded-pill">MAIS VENDIDO</div>
+                        <h4 class="fw-bold mt-2">Plano Pro AI</h4>
+                        <p class="text-muted small">Texto + Áudio</p>
+                        <div class="h1 fw-bold mb-4">R$ 29,90<span class="fs-6 text-muted">/mês</span></div>
+                        <ul class="list-unstyled mb-4 small">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i><b>Tudo do Starter</b></li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i><b>Leitura de Áudios</b></li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Insights de Economia</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Suporte Prioritário</li>
                         </ul>
-                        <button onclick="comprar('Pro')" class="btn btn-info w-100 py-3 rounded-pill fw-bold shadow">QUERO O PLANO PRO</button>
+                        <button onclick="comprar('Pro')" class="btn btn-primary w-100 py-3 rounded-pill fw-bold shadow">ASSINAR AGORA</button>
                     </div>
-                </div>
-            </div>
-
-            <div class="max-width-700 mx-auto text-center mt-5">
-                <div class="guarantee-box">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1055/1055108.png" width="80" class="mb-3" alt="Garantia">
-                    <h5 class="fw-bold">Garantia Incondicional de 7 Dias</h5>
-                    <p class="small text-muted mb-0">Teste o Saldo Ativo sem riscos. Se você não se adaptar em uma semana, devolvemos seu dinheiro na hora. Sem perguntas.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="container py-5">
-        <h2 class="section-title">Dúvidas Frequentes</h2>
-        <div class="accordion accordion-flush" id="faq">
-            <div class="accordion-item border-bottom">
-                <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold" data-bs-toggle="collapse" data-bs-target="#f1">O Saldo Ativo tem acesso à minha conta bancária?</button></h2>
-                <div id="f1" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body text-muted">Não. O Saldo Ativo não se conecta ao seu banco. Você registra os gastos por áudio ou texto, o que garante 100% de segurança e privacidade.</div></div>
+        <h2 class="text-center fw-bold mb-5">Perguntas Frequentes</h2>
+        <div class="accordion accordion-flush mx-auto" id="faq" style="max-width: 700px;">
+            <div class="accordion-item border rounded-3 mb-2">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#q1">
+                        Preciso baixar algum aplicativo?
+                    </button>
+                </h2>
+                <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faq">
+                    <div class="accordion-body text-muted">Não! O Saldo Ativo funciona inteiramente dentro do seu WhatsApp, aproveitando o app que você já usa todo dia.</div>
+                </div>
             </div>
-            <div class="accordion-item border-bottom">
-                <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold" data-bs-toggle="collapse" data-bs-target="#f2">Posso usar em mais de um celular?</button></h2>
-                <div id="f2" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body text-muted">A assinatura é vinculada ao seu número de WhatsApp oficial.</div></div>
+            <div class="accordion-item border rounded-3 mb-2">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#q2">
+                        Como funciona o pagamento?
+                    </button>
+                </h2>
+                <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faq">
+                    <div class="accordion-body text-muted">Trabalhamos com assinaturas mensais seguras via PIX ou Cartão. Você pode cancelar quando quiser sem taxas escondidas.</div>
+                </div>
+            </div>
+            <div class="accordion-item border rounded-3 mb-2">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#q3">
+                        A IA entende qualquer áudio?
+                    </button>
+                </h2>
+                <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faq">
+                    <div class="accordion-body text-muted">Sim! No plano Pro, nossa IA usa tecnologia de ponta para entender áudios mesmo com barulhos de fundo ou gírias brasileiras.</div>
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="container text-center text-md-start">
+        <div class="container">
             <div class="row g-4">
-                <div class="col-md-6">
-                    <h4 class="fw-bold mb-3">SALDO ATIVO AI</h4>
-                    <p class="small text-white-50">Simplificando o controle financeiro para o brasileiro através de inteligência artificial e conversas reais.</p>
+                <div class="col-md-6 text-center text-md-start">
+                    <h4 class="fw-bold mb-3">SALDO ATIVO</h4>
+                    <p class="small text-white-50">Sua liberdade financeira começa com a organização. Criado para brasileiros que buscam simplicidade.</p>
                 </div>
-                <div class="col-md-6 text-md-end">
-                    <p class="small mb-2">Suporte: suporte@saldoativo.com.br</p>
-                    <div class="d-flex justify-content-center justify-content-md-end gap-3 mt-3 text-white-50">
-                        <i class="fab fa-instagram fa-2x"></i>
-                        <i class="fab fa-whatsapp fa-2x"></i>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="small mb-1">Contato: suporte@saldoativo.com.br</p>
+                    <div class="mt-3">
+                        <i class="fab fa-instagram fa-lg me-3"></i>
+                        <i class="fab fa-linkedin fa-lg"></i>
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-5 pt-4 border-top border-secondary small text-white-50">
-                &copy; 2026 Saldo Ativo LTDA - CNPJ 00.000.000/0001-00
+            <hr class="my-4 opacity-25">
+            <div class="text-center small text-white-50">
+                &copy; 2026 Saldo Ativo LTDA. Todos os direitos reservados.
             </div>
         </div>
     </footer>
