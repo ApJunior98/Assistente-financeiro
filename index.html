@@ -21,14 +21,10 @@
 
         body { font-family: 'Inter', sans-serif; background-color: #fff; color: #333; overflow-x: hidden; -webkit-user-select: none; user-select: none; }
 
-        /* BARRA DE AVISO */
-        .promo-bar { background: var(--dark-blue); color: #fff; text-align: center; padding: 10px; font-size: 0.85rem; font-weight: 700; }
-        .promo-bar span { color: var(--accent-cyan); animation: flash 1.5s infinite; }
-        @keyframes flash { 50% { opacity: 0.5; } }
-
-        /* AJUSTE DO LOGO OFICIAL */
+        /* LOGO OTIMIZADO */
         .logo-box { display: flex; align-items: center; gap: 12px; font-weight: 800; color: var(--primary-blue); font-size: 1.4rem; text-decoration: none; }
-        .logo-img { width: 45px; height: 45px; object-fit: contain; border-radius: 10px; }
+        .logo-img { width: 42px; height: 42px; object-fit: contain; border-radius: 8px; transition: 0.3s; }
+        .logo-box:hover .logo-img { transform: scale(1.05); }
 
         /* HERO SECTION */
         .hero-section {
@@ -38,7 +34,7 @@
         .hero-section h1 { font-size: clamp(2.4rem, 8vw, 4rem); font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
         .badge-new { background: var(--accent-cyan); color: var(--dark-blue); padding: 5px 15px; border-radius: 50px; font-weight: 800; font-size: 0.8rem; margin-bottom: 20px; display: inline-block; }
 
-        /* MOCKUP WHATSAPP */
+        /* WHATSAPP MOCKUP */
         .media-container {
             max-width: 330px; margin: -60px auto 40px; background: #fff; border: 10px solid #fff;
             border-radius: 45px; box-shadow: 0 25px 50px rgba(0,0,0,0.25); position: relative; overflow: hidden;
@@ -59,11 +55,9 @@
         .feature-box:hover { border-bottom-color: var(--accent-cyan); transform: translateY(-5px); }
         .icon-circle { width: 70px; height: 70px; background: white; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2rem; color: var(--secondary-blue); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
 
-        /* PREÇOS */
         .price-card { background: white; border-radius: 30px; padding: 45px 30px; border: 2px solid #eee; position: relative; transition: 0.4s; }
         .price-card.premium { border-color: var(--accent-cyan); background: var(--dark-blue); color: white; transform: scale(1.05); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
-        .check-icon { color: var(--success-green); margin-right: 10px; }
-
+        
         footer { background: var(--dark-blue); color: #fff; padding: 70px 20px 30px; }
         .footer-logo { display: flex; align-items: center; gap: 10px; font-weight: 800; color: white; font-size: 1.2rem; margin-bottom: 15px; }
     </style>
@@ -73,7 +67,7 @@
     <nav class="navbar navbar-light bg-white sticky-top shadow-sm py-2">
         <div class="container">
             <a href="#" class="logo-box">
-                <img src="https://github.com/ApJunior98/Assistente-financeiro/blob/main/unnamed.jpg" alt="Saldo Ativo Logo" class="logo-img">
+                <img src="https://raw.githubusercontent.com/ApJunior98/Assistente-financeiro/main/unnamed.jpg" alt="Saldo Ativo" class="logo-img">
                 <span>SALDO ATIVO</span>
             </a>
             <a href="#planos" class="btn btn-primary rounded-pill px-4 fw-bold">ASSINAR 🚀</a>
@@ -143,8 +137,8 @@
                         <h4 class="fw-bold">Starter Texto 📝</h4>
                         <div class="h2 fw-bold my-4">R$ 19,90<small class="fs-6 text-muted">/mês</small></div>
                         <ul class="list-unstyled text-start mb-4">
-                            <li class="mb-2"><i class="fas fa-check check-icon"></i> Registros via Texto</li>
-                            <li class="mb-2"><i class="fas fa-check check-icon"></i> Categorização Automática</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Registros via Texto</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Categorização Automática</li>
                         </ul>
                         <button onclick="comprar('Starter')" class="btn btn-outline-primary w-100 py-3 rounded-pill fw-bold">ASSINAR STARTER</button>
                     </div>
@@ -170,7 +164,7 @@
             <div class="row g-4">
                 <div class="col-md-6 text-center text-md-start">
                     <div class="footer-logo">
-                        <img src="https://github.com/ApJunior98/Assistente-financeiro/blob/main/unnamed.jpg" alt="Logo" class="logo-img" style="filter: brightness(0) invert(1);">
+                        <img src="https://raw.githubusercontent.com/ApJunior98/Assistente-financeiro/main/unnamed.jpg" alt="Logo" class="logo-img" style="filter: brightness(0) invert(1);">
                         SALDO ATIVO
                     </div>
                     <p class="small text-white-50">Inteligência Artificial a serviço da sua liberdade financeira.</p>
